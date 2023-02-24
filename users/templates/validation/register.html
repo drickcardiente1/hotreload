@@ -1,0 +1,219 @@
+ {% extends "validation_base.html" %}
+<!-- base -->
+{% block tittle %}REGISTRATION{% endblock %}
+<!-- tittle -->
+{% block navbar %}
+<nav class="navbar navbar-expand-lg navbar-absolute navbar-transparent fixed-top">
+    <div class="container-fluid">
+        <div class="navbar-wrapper">
+            <div class="navbar-toggle d-inline">
+                <button type="button" class="navbar-toggler">
+                <span class="navbar-toggler-bar bar1"></span>
+                <span class="navbar-toggler-bar bar2"></span>
+                <span class="navbar-toggler-bar bar3"></span>
+                </button>
+            </div>
+            <a class="navbar-brand" style="color: white;">TE MOTORBIKES SIGN UP</a>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navigation" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-bar navbar-kebab"></span>
+        <span class="navbar-toggler-bar navbar-kebab"></span>
+        <span class="navbar-toggler-bar navbar-kebab"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navigation">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a href="{% url 'home' %}" class="nav-link text-primary">
+                        <i class="tim-icons icon-minimal-left"></i> Back To Home
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+{% endblock %}
+<!-- navbar -->
+{% block content %}
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 ml-auto">
+                <div class="info-area info-horizontal mt-5">
+                    <div class="icon icon-warning">
+                        <i class="tim-icons icon-wifi"></i>
+                    </div>
+                    <div class="description">
+                        <h3 class="info-title">Marketing</h3>
+                        <p class="description">
+                            We've created the marketing campaign of the website. It was a very interesting collaboration.
+                        </p>
+                    </div>
+                </div>
+                <div class="info-area info-horizontal">
+                    <div class="icon icon-primary">
+                        <i class="tim-icons icon-triangle-right-17"></i>
+                    </div>
+                    <div class="description">
+                        <h3 class="info-title">Fully Coded in HTML5</h3>
+                        <p class="description">
+                            We've developed the website with HTML5 and CSS3. The client has access to the code using GitHub.
+                        </p>
+                    </div>
+                </div>
+                <div class="info-area info-horizontal">
+                    <div class="icon icon-info">
+                        <i class="tim-icons icon-trophy"></i>
+                    </div>
+                    <div class="description">
+                        <h3 class="info-title">Built Audience</h3>
+                        <p class="description">
+                            There is also a Fully Customizable CMS Admin Dashboard for this product.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 mr-auto">
+                <div class="card card-register card-white">
+                    <div class="card-header">
+                        <img class="card-img" src="/static/assets/img/card-primary.png" alt="Card image">
+                        <h4 class="card-title" style="font-size: 2rem;">Registration Form</h4>
+                    </div>
+                    <form class="form" method="post" action="{% url 'signup_proccess' %}">
+                        {% csrf_token %}
+                        <div class="card-body ml-auto">
+                            <div class="card-footer text-center" style="margin: 0; padding: 0;">
+                                <div class="row" style="margin-bottom:0;">
+                                    <div class="col-6 " >
+                                        <div class="input-group">
+                                            <div class="text-left">
+                                                Already member ?
+                                                <a href="{% url 'login' %}">login </a>
+                                                here.
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-6" style="margin: 0; padding: 0;" id="timer">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="input-group">
+                                <form id="tform" action="">
+                                    <div class="input-group-prepend">
+                                        <div class="input-group-text">
+                                            <i class="tim-icons icon-email-85"></i>
+                                        </div>
+                                    </div>
+                                    {{ form.email }}
+                                <button class="btn btn-primary btn-sm ml-auto" id="btnct" type="submit">Send Code</button>
+                                </form>
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="tim-icons icon-single-02"></i>
+                                    </div>
+                                </div>
+                                {{ form.username }}
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="tim-icons icon-single-02"></i>
+                                    </div>
+                                </div>
+                                {{ form.first_name }} {{ form.last_name }}
+                            </div>
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <div class="input-group-text">
+                                        <i class="tim-icons icon-lock-circle"></i>
+                                    </div>
+                                </div>
+                                {{ form.password1 }} {{ form.password2 }}
+                            </div>
+                            <div class="form-check text-center" style="margin: 0;">
+                                <label class="form-check-label">
+                                    <input class="form-check-input" type="checkbox">
+                                    <span class="form-check-sign"></span>I'd like to receive exclusive offers and promotions via
+                                    <a href="javascript:void(0)">email</a>.
+                                </label>
+                                <div class="text-center">
+                                    <button class="btn btn-primary btn-round btn-lg" type="submit">SUBMIT</button>
+                                <br>
+                                <div class="text-center">
+                                    OR
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                    <div class="card-footer text-center" style="margin: 0; padding-top: 0;">
+                        <div class="row">
+                            <div class="col-6">
+                                <button class="btn btn-simple btn-facebook">
+                                    Connect with Facebook
+                                    <i class="fab fa-facebook-square"></i>
+                                </button>
+                            </div>
+                            <div class="col-6">
+                                <button class="btn btn-simple btn-google">
+                                    <i class="fab fa-google-plus-g"></i> 
+                                    Connect with Google+
+                                </button>
+                            </div>
+                        </div>
+                        <br>
+                        <div class="text-left">
+                            By proceeding to sign up, I acknowledge that I have read and consented to TE Motorbike’s<a href="">Terms of Use</a> and <a href="">Privacy Policy</a> , which sets out how TE Motorbike’s collects, uses and discloses my personal data, and the rights that I have under applicable law.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+<!-- content -->
+{% block scripts %}
+<script type="text/javascript">
+    var ctmnts = 0;
+    var ctsecs = 0;
+    var startchr = 0;
+    function countdownTimer() {
+      if(startchr == 0) {
+        document.getElementById('btnct').setAttribute('disabled', 'disabled');
+        document.getElementById('email').setAttribute('disabled', 'disabled');
+        time ='<span id="showtime">Resend &nbsp;(<span id="showmns">00</span>:<span id="showscs">00</span>): </span>'
+        tform = '<input type="text" placeholder="OTP" class="ml-auto" id="input" maxlength="6" size="6" required>'
+        $('#timer').append(time);
+        $('#timer').append(tform);
+        ctmnts = parseInt(0);
+        ctsecs = parseInt(3) * 1;
+        startchr = 1;
+      }
+      if(ctmnts==0 && ctsecs==0) {
+        startchr = 0;
+        document.getElementById('showtime').remove();
+        document.getElementById('input').remove();
+        document.getElementById('btnct').removeAttribute('disabled');
+        document.getElementById('email').removeAttribute('disabled');
+        return false;
+      }
+      else {
+        ctsecs--;
+        if(ctsecs < 0) {
+          if(ctmnts > 0) {
+            ctsecs = 59;
+            ctmnts--;
+          }
+          else {
+            ctsecs = 0;
+            ctmnts = 0;
+          }
+        }
+      }
+      document.getElementById('showmns').innerHTML = ctmnts;
+      document.getElementById('showscs').innerHTML = ctsecs;
+      setTimeout('countdownTimer()', 1000);
+    }
+    </script>
+{% endblock %}
